@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import { config } from '@/lib/config'
 
-const tables = ['users', 'posts', 'categories']
+const tables = ['post', 'category'] // Match Xano endpoints
 
 export default function AdminLayout({
   children,
@@ -29,7 +30,9 @@ export default function AdminLayout({
               </div>
             </div>
             <div className="flex items-center">
-              <span className="text-sm text-gray-500">Demo Mode</span>
+              <span className="text-sm text-gray-500">
+                {config.dataMode === 'xano' ? 'Xano Mode' : 'Demo Mode'}
+              </span>
             </div>
           </div>
         </div>
